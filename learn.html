@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aster - Learn</title>
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple-soft: #7B6FE8;
+    --pink: #E87FD4;
+    --pink-bright: #F09AE0;
+    --bg: #0E0C1A;
+    --bg-card: #16132A;
+    --text: #F0EEF8;
+    --text-muted: #A09AC0;
+    --text-faint: #605A80;
+    --border: rgba(255,255,255,0.08);
+    --border-accent: rgba(232,127,212,0.25);
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(14,12,26,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+  .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, #5B4FD4, #4A6ED4); display: flex; align-items: center; justify-content: center; }
+  .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover { color: var(--text); }
+  .nav-link.active { color: var(--text); }
+  .nav-download { font-size: 13px; font-weight: 500; color: var(--bg); background: var(--pink); padding: 0.45rem 1.1rem; border-radius: 6px; text-decoration: none; }
+  .nav-download:hover { background: var(--pink-bright); }
+  main { max-width: 960px; margin: 0 auto; padding: 8rem 2rem 5rem; }
+  .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink); opacity: 0.8; margin-bottom: 0.6rem; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.75rem; }
+  h2 span { background: linear-gradient(90deg, var(--pink), var(--purple-soft)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .lead { font-size: 1rem; color: var(--text-muted); font-weight: 300; line-height: 1.8; margin-bottom: 2.5rem; max-width: 560px; }
+  .block { margin-bottom: 5rem; }
+  .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+  .how-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; transition: border-color 0.2s; }
+  .how-card:hover { border-color: var(--border-accent); }
+  .how-num { font-size: 11px; font-weight: 600; color: var(--pink); opacity: 0.7; letter-spacing: 0.08em; margin-bottom: 0.6rem; }
+  .how-card h3 { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
+  .how-card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+  .use-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+  .use-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; transition: border-color 0.2s; }
+  .use-card:hover { border-color: var(--border-accent); }
+  .use-card h3 { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 0.5rem; }
+  .use-card .scenario { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-bottom: 0.8rem; }
+  .outcome-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink); opacity: 0.7; margin-bottom: 0.3rem; }
+  .outcome { font-size: 13px; color: var(--text); line-height: 1.6; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  @media (max-width: 600px) { .why-grid { grid-template-columns: 1fr; } }
+  .why-item { display: flex; gap: 0.85rem; align-items: flex-start; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem; }
+  .why-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(232,127,212,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .why-item h4 { font-size: 13.5px; font-weight: 500; color: var(--text); margin-bottom: 0.25rem; }
+  .why-item p { font-size: 12.5px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+  .ethics-band { background: linear-gradient(135deg, rgba(91,79,212,0.18), rgba(74,110,212,0.12)); border: 1px solid rgba(91,79,212,0.3); border-radius: 16px; padding: 2rem; }
+  .ethics-band p { font-size: 14px; color: var(--text-muted); line-height: 1.85; font-weight: 300; }
+  .ethics-band strong { color: var(--text); font-weight: 500; }
+  .divider { height: 1px; background: var(--border); margin: 4rem 0; }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-size: 12px; color: var(--text-faint); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <line x1="9" y1="2" x2="9" y2="16" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="2" y1="9" x2="16" y2="9" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="3.7" y1="3.7" x2="14.3" y2="14.3" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="14.3" y1="3.7" x2="3.7" y2="14.3" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    Aster
+  </a>
+  <div class="nav-links">
+    <a href="learn.html" class="nav-link active">Learn</a>
+    <a href="index.html#tipjar" class="nav-link">Tip jar</a>
+    <a href="#" class="nav-download">Download</a>
+  </div>
+</nav>
+
+<main>
+
+  <div class="block">
+    <p class="section-label">How it works</p>
+    <h2>Three steps from screen to <span>Claude</span></h2>
+    <p class="lead">Record, work, copy. Aster packages everything Claude needs without the video file.</p>
+    <div class="how-grid">
+      <div class="how-card">
+        <p class="how-num">01</p>
+        <h3>Hit record</h3>
+        <p>Click, drag to select your area. Mic on or off. No cloud account, no setup.</p>
+      </div>
+      <div class="how-card">
+        <p class="how-num">02</p>
+        <h3>Do your work</h3>
+        <p>Browse a spec, flip tabs, click through your app. Aster captures screen text, narration, and screenshots locally at each key moment.</p>
+      </div>
+      <div class="how-card">
+        <p class="how-num">03</p>
+        <h3>Paste into Claude</h3>
+        <p>Hit copy. A context package — transcript, on-screen text, screenshot references — goes to your clipboard. Paste into Claude. Done.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block">
+    <p class="section-label">Real workflows</p>
+    <h2>What you actually use it <span>for</span></h2>
+    <p class="lead">Aster detects your session type and shapes the context package accordingly.</p>
+    <div class="use-grid">
+      <div class="use-card">
+        <h3>Building from a spec</h3>
+        <p class="scenario">Open your PRD, select the requirements, flip to your live app and click through it. Aster captures the spec text and screenshots side by side.</p>
+        <p class="outcome-label">Result</p>
+        <p class="outcome">Gaps identified, tasks ready to action. Formats cleanly for Claude Code.</p>
+      </div>
+      <div class="use-card">
+        <h3>Customer call summaries</h3>
+        <p class="scenario">Record a call. Aster transcribes it and tracks what landed, what was questioned, and what was promised.</p>
+        <p class="outcome-label">Result</p>
+        <p class="outcome">Next actions, open items, and follow-ups. No manual notes.</p>
+      </div>
+      <div class="use-card">
+        <h3>Demo walkthroughs</h3>
+        <p class="scenario">Walk through a feature with narration. Each click saves a local screenshot. You control the pace.</p>
+        <p class="outcome-label">Result</p>
+        <p class="outcome">Talking points, demo structure, and key moments labeled. Shareable as a standalone artifact.</p>
+      </div>
+      <div class="use-card">
+        <h3>Bug triage</h3>
+        <p class="scenario">Show the broken state, describe what should happen, reproduce the steps.</p>
+        <p class="outcome-label">Result</p>
+        <p class="outcome">A clean bug report: steps to reproduce, expected vs actual, severity, inline screenshots.</p>
+      </div>
+      <div class="use-card">
+        <h3>Code review</h3>
+        <p class="scenario">Open a PR, narrate your concerns, show the relevant lines. Click to staging to demonstrate the issue.</p>
+        <p class="outcome-label">Result</p>
+        <p class="outcome">Specific feedback with line references and fixes. Ready to paste into GitHub.</p>
+      </div>
+      <div class="use-card">
+        <h3>Design feedback</h3>
+        <p class="scenario">Open Figma, talk through what works and what doesn't. Aster captures narration and screenshots per section.</p>
+        <p class="outcome-label">Result</p>
+        <p class="outcome">Structured feedback with visuals. Ready to post to Slack or send directly.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="block">
+    <p class="section-label">Why Aster</p>
+    <h2>More context. <span>Less waste.</span></h2>
+    <p class="lead">Recording tools that upload to the cloud cost money, leak data, and slow you down.</p>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="3" stroke="#E87FD4" stroke-width="1.4"/><path d="M5 8l2 2 4-4" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <h4>Stays on your machine</h4>
+          <p>All processing is local. Nothing leaves your computer unless you choose to share it.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#E87FD4" stroke-width="1.4"/><path d="M8 5v3l2 2" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <div>
+          <h4>Instant transcription</h4>
+          <p>Audio is transcribed on-device the moment you stop recording. No upload, no wait.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <h4>No extra subscriptions</h4>
+          <p>Replaces Loom, Chorus, and Command-Shift-5. If you have Claude, you have what you need.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2l1.5 4.5H14l-3.5 2.5 1.5 4.5L8 11l-4 2.5 1.5-4.5L2 6.5h4.5z" stroke="#E87FD4" stroke-width="1.3" stroke-linejoin="round"/></svg></div>
+        <div>
+          <h4>Context-aware packaging</h4>
+          <p>Aster reads what you're doing and shapes the output for Claude, whether you're building, reviewing, or on a call.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ethics-band">
+    <p class="section-label" style="margin-bottom: 0.6rem;">Built different</p>
+    <p>Aster is named after a native wildflower — a plant that thrives in its local environment without needing to be shipped somewhere else to grow. <strong>Local compute works the same way.</strong> The more processing that happens on your own device, using models built for your hardware, the less that needs to travel to a data center. Less exposure, less cost, more control. That's what Aster is built around — and as on-device models get better, so does Aster.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Aster · A personal project · Built in Montreal</p>
+</footer>
+
+</body>
+</html>
