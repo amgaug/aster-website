@@ -55,22 +55,9 @@
   .feat-icon { width: 34px; height: 34px; border-radius: 9px; background: rgba(232,127,212,0.12); display: flex; align-items: center; justify-content: center; margin-bottom: 0.9rem; }
   .feat-card h3 { font-size: 14.5px; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
   .feat-card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
-  .tipjar { max-width: 560px; margin: 0 auto; padding: 3rem 2rem 5rem; }
   .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink); opacity: 0.8; margin-bottom: 0.5rem; }
   h2 { font-size: 1.4rem; font-weight: 600; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.5rem; }
   h2 span { background: linear-gradient(90deg, var(--pink), var(--purple-soft)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .tip-desc { font-size: 13.5px; color: var(--text-muted); font-weight: 300; line-height: 1.7; margin-bottom: 1.75rem; max-width: 440px; }
-  .tip-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; }
-  .currency-toggle { display: flex; gap: 8px; margin-bottom: 1.5rem; }
-  .cur-btn { flex: 1; padding: 0.5rem; border-radius: 7px; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid var(--pink); background: var(--pink); color: #1A0E2E; transition: all 0.15s; font-family: inherit; }
-  .cur-btn.inactive { border-color: rgba(255,255,255,0.15); background: transparent; color: var(--text-muted); }
-  .tip-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 1.25rem; }
-  .tip-btn { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 0.85rem 1.1rem; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-card2); cursor: pointer; transition: border-color 0.15s; font-family: inherit; }
-  .tip-btn:hover { border-color: rgba(232,127,212,0.4); }
-  .tip-amt { font-size: 13.5px; font-weight: 500; color: var(--text); text-align: left; }
-  .tip-note { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; text-align: left; }
-  .tip-arrow { color: var(--pink); flex-shrink: 0; }
-  .tip-fine { font-size: 11px; color: var(--text-faint); text-align: center; line-height: 1.6; }
   footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-size: 12px; color: var(--text-faint); }
 </style>
 </head>
@@ -92,7 +79,6 @@
     <a href="#features" class="nav-link">Features</a>
     <a href="learn.html" class="nav-link">Learn</a>
     <a href="feedback.html" class="nav-link">Feedback</a>
-    <a href="#tipjar" class="nav-link">Tip jar</a>
     <a href="https://github.com/amgaug/aster-releases/releases/latest/download/Aster.zip" class="nav-download">Download</a>
   </div>
 </nav>
@@ -154,58 +140,9 @@
   </div>
 </section>
 
-<div class="divider"></div>
-
-<div class="tipjar" id="tipjar">
-  <p class="section-label">Tip jar</p>
-  <h2>Help keep <span>Aster running.</span></h2>
-  <p class="tip-desc">Local models from Apple and third parties are getting better every day. To help Aster make the most of them, consider contributing.</p>
-
-  <div class="tip-card">
-    <div class="currency-toggle">
-      <button class="cur-btn" id="btn-usd" onclick="setCurrency('USD')">USD $</button>
-      <button class="cur-btn inactive" id="btn-cad" onclick="setCurrency('CAD')">CAD $</button>
-    </div>
-    <div class="tip-options" id="tip-options"></div>
-    <p class="tip-fine">Opens a payment link. No account needed. Processed securely via Stripe.</p>
-  </div>
-</div>
-
 <footer>
   <p>Aster · A personal project · Built in Montreal</p>
 </footer>
 
-<script>
-  const tiers = [
-    { amt: 300, note: 'T-shirt + hoodie, shipped to you' },
-    { amt: 100, note: 'T-shirt, shipped to you' },
-    { amt: 25,  note: 'Keeps the lights on' },
-    { amt: 10,  note: 'Much appreciated' },
-    { amt: 5,   note: 'Every bit helps' },
-  ];
-  let currency = 'USD';
-  function setCurrency(c) {
-    currency = c;
-    document.getElementById('btn-usd').className = 'cur-btn' + (c === 'USD' ? '' : ' inactive');
-    document.getElementById('btn-cad').className = 'cur-btn' + (c === 'CAD' ? '' : ' inactive');
-    renderTiers();
-  }
-  function renderTiers() {
-    const sym = currency === 'USD' ? 'US$' : 'CA$';
-    document.getElementById('tip-options').innerHTML = tiers.map(t =>
-      `<button class="tip-btn" onclick="handleTip(${t.amt}, '${currency}')">
-        <div>
-          <div class="tip-amt">${sym}${t.amt}</div>
-          <div class="tip-note">${t.note}</div>
-        </div>
-        <svg class="tip-arrow" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>`
-    ).join('');
-  }
-  function handleTip(amount, currency) {
-    alert('Payment link coming soon! Thank you.');
-  }
-  renderTiers();
-</script>
 </body>
 </html>
