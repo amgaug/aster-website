@@ -66,8 +66,12 @@
   .ethics-band p { font-size: 14px; color: var(--text-muted); line-height: 1.85; font-weight: 300; }
   .ethics-band strong { color: var(--text); font-weight: 500; }
   .divider { height: 1px; background: var(--border); margin: 4rem 0; }
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+  @media (max-width: 760px) { .tier-grid { grid-template-columns: 1fr; } }
   .tier-card { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 2rem 1.75rem; display: flex; flex-direction: column; }
   .tier-card.featured { border-color: var(--border-accent); box-shadow: 0 8px 40px rgba(91,79,212,0.12); }
+  .tier-card .tier-list { margin-bottom: 1.5rem; }
+  .tier-card .sh-btn { margin-top: auto; }
   .tier-head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.1rem; }
   .tier-name { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--pink); text-transform: uppercase; }
   .tier-price { display: flex; align-items: baseline; gap: 0.4rem; margin-bottom: 0.5rem; }
@@ -79,8 +83,6 @@
   .tier-list svg { flex-shrink: 0; margin-top: 3px; }
   .tier-foot { font-size: 13px; color: var(--text-muted); font-weight: 300; line-height: 1.7; margin-top: 1.75rem; }
   footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-size: 12px; color: var(--text-faint); }
-  .sh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-  @media (max-width: 600px) { .sh-grid { grid-template-columns: 1fr; } }
   .sh-price { font-size: 13px; color: var(--text-faint); font-weight: 400; margin: -0.25rem 0 1rem; }
   .sh-btn { display: inline-flex; align-items: center; justify-content: center; width: 100%; margin-top: 1.5rem; background: var(--pink); color: #1A0E2E; font-size: 14px; font-weight: 600; padding: 0.7rem 1.4rem; border: none; border-radius: 8px; cursor: pointer; font-family: inherit; transition: background 0.2s; }
   .sh-btn:hover { background: var(--pink-bright); }
@@ -204,55 +206,55 @@
 
   <div class="block" id="pricing">
     <p class="section-label">Pricing</p>
-    <h2>Hosted sharing is <span>free</span></h2>
-    <p class="lead">Aster is free and runs locally. Aster Share adds encrypted link sharing on top &mdash; free for everyday clips, with caps on file size and storage. Want to set your own limits, full control, or sharing inside your own boundary? Self-host it (below).</p>
-    <div style="max-width: 360px; margin: 0 auto;">
-      <div class="tier-card featured">
+    <h2>Pick how you <span>share</span></h2>
+    <p class="lead">Aster is free and runs locally. Aster Share adds encrypted link sharing on top &mdash; free for everyday clips, self-hosted on your own cloud with no caps from us, or fully managed for your team.</p>
+    <div class="tier-grid">
+
+      <div class="tier-card">
         <div class="tier-head"><p class="tier-name">Free</p></div>
         <div class="tier-price"><span class="num">$0</span><span class="per">forever</span></div>
+        <p class="sh-price">Hosted by us</p>
         <p class="tier-meta">Included with Aster &mdash; encrypted sharing for everyday clips.</p>
         <ul class="tier-list">
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>2 GB of shared storage</li>
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 100 MB per file</li>
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Links last 7 days, renewable</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>End-to-end encrypted, only a verified email needed</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>End-to-end encrypted</li>
         </ul>
+        <a href="https://github.com/amgaug/aster-releases/releases/latest/download/Aster.zip" class="sh-btn" style="text-decoration:none;">Download Aster</a>
       </div>
-    </div>
-    <p class="tier-foot">Want sharing entirely on your own infrastructure? See the self-hosting options below.</p>
-  </div>
 
-  <div class="block" id="self-host">
-    <p class="section-label">Self-hosting</p>
-    <h2>Run Aster Share on <span>your own infrastructure</span></h2>
-    <p class="lead">The free hosted tier above is the easy way in, with caps on file size and storage. Pay once to run the Aster Share backend yourself &mdash; our caps no longer apply, you set your own limits, and you're never dependent on us staying online. It's a standard Cloudflare Worker, so your links live on your own account and keep working no matter what.</p>
-    <div class="sh-grid">
-      <div class="tier-card">
+      <div class="tier-card featured">
         <div class="tier-head"><p class="tier-name">Personal</p></div>
-        <p class="sh-price">$49 one-time &middot; for individual use</p>
-        <p class="tier-meta">Your own private share backend on your own cloud account, where our caps don't apply &mdash; set your own limits. You hold every key, and your links are independent of the hosted service.</p>
+        <div class="tier-price"><span class="num">$49</span><span class="per">one-time</span></div>
+        <p class="sh-price">For individual use</p>
+        <p class="tier-meta">Your own share backend on your own cloud. Our caps don't apply &mdash; set your own limits, and you hold every key.</p>
         <ul class="tier-list">
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Set your own file-size &amp; storage limits</li>
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Runs on your own Cloudflare account</li>
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>End-to-end encrypted, you hold every key</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Deploy tooling and setup guidance included</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Deploy tooling and setup guidance</li>
         </ul>
         <!-- Checkout coming soon: clicking captures interest via the request form below. -->
         <button class="sh-btn" onclick="selectPackage('Personal')">Coming soon</button>
       </div>
-      <div class="tier-card featured">
+
+      <div class="tier-card">
         <div class="tier-head"><p class="tier-name">Enterprise</p></div>
+        <div class="tier-price"><span class="num">Custom</span></div>
         <p class="sh-price">Pricing on request</p>
-        <p class="tier-meta">A dedicated, fully managed Aster Share instance that we host, operate, and keep running for your team. Deployment in your own cloud on request.</p>
+        <p class="tier-meta">A dedicated, fully managed instance we host and run for your team. Your-own-cloud deployment on request.</p>
         <ul class="tier-list">
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated instance, hosted &amp; managed by us</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>We handle setup and onboarding</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Setup and onboarding handled for you</li>
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support and an SLA</li>
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Personal</li>
         </ul>
         <button class="sh-btn" onclick="selectPackage('Enterprise')">Request access</button>
       </div>
+
     </div>
+    <p class="tier-foot">Personal checkout is coming soon &mdash; request access below and we'll be in touch.</p>
     <div class="sh-form" id="sh-form">
       <div class="sh-field">
         <label for="sh-email">Your email</label>
