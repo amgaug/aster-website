@@ -6,11 +6,11 @@
 <title>Aster - Pricing</title>
 <link rel="icon" href="favicon.ico">
 <link rel="canonical" href="https://asterlabs.dev/pricing.html">
-<meta name="description" content="Aster is free forever. It runs entirely on your machine, with no sign up required.">
+<meta name="description" content="Aster is free and runs entirely on your machine, with caps on hosted sharing. Pay once to self-host and remove the caps.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://asterlabs.dev/pricing.html">
 <meta property="og:title" content="Aster · Pricing">
-<meta property="og:description" content="Free forever. Runs entirely on your machine. No sign up required.">
+<meta property="og:description" content="Free to use, with capped hosted sharing. Pay once to self-host and go uncapped.">
 <meta property="og:image" content="https://asterlabs.dev/icon-512-maskable.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,10 +57,32 @@
   .price-list svg { flex-shrink: 0; margin-top: 3px; }
   .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: var(--pink); color: #1A0E2E; font-size: 14px; font-weight: 600; padding: 0.8rem 1.5rem; border-radius: 9px; text-decoration: none; transition: background 0.2s; }
   .btn-primary:hover { background: var(--pink-bright); }
+  .btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: transparent; color: var(--text); font-size: 13.5px; font-weight: 500; padding: 0.65rem 1.5rem; border: 1px solid var(--border); border-radius: 9px; text-decoration: none; margin-top: 0.7rem; transition: border-color 0.2s; }
+  .btn-secondary:hover { border-color: var(--border-accent); }
   .platform-note { font-size: 11.5px; color: var(--text-faint); margin-top: 0.9rem; text-align: center; }
   .share-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 1.75rem; font-size: 13.5px; font-weight: 500; color: var(--pink); text-decoration: none; transition: gap 0.2s; }
   .share-link:hover { gap: 10px; }
   footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-size: 12px; color: var(--text-faint); }
+  .selfhost { margin-top: 4.5rem; text-align: center; }
+  .sh-h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+  .sh-h2 span { background: linear-gradient(90deg, var(--pink), var(--purple-soft)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .sh-sub { font-size: 0.95rem; color: var(--text-muted); font-weight: 300; max-width: 480px; margin: 0 auto 2rem; line-height: 1.8; }
+  .sh-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; text-align: left; }
+  @media (max-width: 560px) { .sh-grid { grid-template-columns: 1fr; } }
+  .sh-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem 1.5rem; display: flex; flex-direction: column; }
+  .sh-card.featured { border-color: var(--border-accent); box-shadow: 0 8px 40px rgba(91,79,212,0.12); }
+  .sh-name { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--pink); text-transform: uppercase; margin-bottom: 0.35rem; }
+  .sh-price { font-size: 13px; color: var(--text-faint); font-weight: 400; margin-bottom: 0.8rem; }
+  .sh-meta { font-size: 13px; color: var(--text-muted); font-weight: 300; line-height: 1.7; margin-bottom: 1.5rem; flex: 1; }
+  .sh-btn { width: 100%; cursor: pointer; border: none; font-family: inherit; }
+  .sh-form { max-width: 420px; margin: 2.25rem auto 0; text-align: left; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; }
+  .sh-field { margin-bottom: 1rem; }
+  .sh-form label { display: block; font-size: 12px; font-weight: 500; color: var(--text-muted); margin-bottom: 0.4rem; letter-spacing: 0.02em; }
+  .sh-form input, .sh-form select { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 0.9rem; font-family: inherit; font-size: 14px; font-weight: 300; color: var(--text); outline: none; transition: border-color 0.2s; }
+  .sh-form input:focus, .sh-form select:focus { border-color: var(--border-accent); }
+  .status { margin-top: 0.9rem; padding: 0.7rem 0.9rem; border-radius: 8px; font-size: 13px; display: none; }
+  .status.success { background: rgba(29,158,117,0.12); border: 1px solid rgba(29,158,117,0.3); color: #5DCAA5; display: block; }
+  .status.error { background: rgba(226,75,74,0.1); border: 1px solid rgba(226,75,74,0.25); color: #F09595; display: block; }
 </style>
 </head>
 <body>
@@ -90,13 +112,13 @@
 <main>
   <div class="glow"></div>
   <p class="section-label">Pricing</p>
-  <h1>Free <span>forever.</span></h1>
-  <p class="lead">Aster runs entirely on your machine. No sign up required.</p>
+  <h1>Free to use. <span>Yours to scale.</span></h1>
+  <p class="lead">Aster is free and runs entirely on your machine. Hosted sharing is free too, with caps on file size and storage. Pay once to self-host and lift the caps.</p>
 
   <div class="price-card">
-    <p class="price-tier">Aster</p>
+    <p class="price-tier">Free</p>
     <div class="price-amt"><span class="num">$0</span><span class="per">forever</span></div>
-    <p class="price-note">Everything runs locally on your Mac. Download and go.</p>
+    <p class="price-note">Everything runs locally on your Mac. Hosted sharing included, with caps on file size and storage.</p>
     <ul class="price-list">
       <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited screen recordings</li>
       <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>On-device transcription (Apple Speech or Whisper)</li>
@@ -104,7 +126,7 @@
       <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Send to Claude desktop, browser, or Claude Code</li>
       <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Connect to Claude with MCP</li>
       <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>In-app analysis with your own Anthropic API key</li>
-      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Private link sharing with Aster Share</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Private link sharing (capped file size &amp; storage)</li>
       <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatic updates, notarized by Apple</li>
     </ul>
     <a href="https://github.com/amgaug/aster-releases/releases/latest/download/Aster.zip" class="btn-primary">
@@ -118,11 +140,100 @@
     See Aster Share pricing
     <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </a>
+
+  <section class="selfhost" id="self-host">
+    <p class="section-label">Self-hosting</p>
+    <h2 class="sh-h2">Run sharing on <span>your own infrastructure</span></h2>
+    <p class="sh-sub">Hosted sharing is free, with caps on file size and storage. Pay once to run Aster Share on your own infrastructure &mdash; no caps, you hold every key, and it keeps working no matter what.</p>
+    <div class="sh-grid">
+      <div class="sh-card">
+        <p class="sh-name">Personal</p>
+        <p class="sh-price">$49 one-time</p>
+        <p class="sh-meta">Run sharing on your own cloud account &mdash; no file-size or storage caps. You hold every key, pay no per-link fees, and your links keep working independent of the hosted service. Includes the deploy tooling and setup guidance.</p>
+        <!-- TODO: wire up to Gumroad / Lemon Squeezy checkout when ready -->
+        <button class="btn-primary sh-btn" disabled style="opacity:0.5;cursor:not-allowed;">Coming soon</button>
+      </div>
+      <div class="sh-card featured">
+        <p class="sh-name">Enterprise</p>
+        <p class="sh-price">Pricing on request</p>
+        <p class="sh-meta">A fully operated private deployment for your team, inside your own cloud, with onboarding, priority support, and an SLA. We set it up and keep it running.</p>
+        <button class="btn-primary sh-btn" onclick="selectPackage('Enterprise')">Request access</button>
+      </div>
+    </div>
+    <div class="sh-form" id="sh-form">
+      <div class="sh-field">
+        <label for="sh-email">Your email</label>
+        <input type="email" id="sh-email" placeholder="you@example.com" autocomplete="email" />
+      </div>
+      <div class="sh-field">
+        <label for="sh-package">Package</label>
+        <select id="sh-package">
+          <option value="Personal">Personal</option>
+          <option value="Enterprise">Enterprise</option>
+        </select>
+      </div>
+      <button class="btn-primary sh-btn" id="sh-submit" onclick="requestSelfHost()">Request self-hosting</button>
+      <div class="status" id="sh-status"></div>
+    </div>
+  </section>
 </main>
 
 <footer>
   <p>Aster · A personal project · Built in Montreal</p>
 </footer>
+
+<script>
+  // Preselect a package and jump to the request form when a card button is clicked.
+  function selectPackage(pkg) {
+    document.getElementById('sh-package').value = pkg;
+    document.getElementById('sh-form').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.getElementById('sh-email').focus();
+  }
+
+  // Fire a self-hosting request to amgaug@gmail.com via FormSubmit, noting the package.
+  async function requestSelfHost() {
+    const email = document.getElementById('sh-email').value.trim();
+    const pkg = document.getElementById('sh-package').value;
+    const status = document.getElementById('sh-status');
+    const btn = document.getElementById('sh-submit');
+
+    status.className = 'status';
+    status.textContent = '';
+
+    if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      status.className = 'status error';
+      status.textContent = 'Please enter a valid email.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    try {
+      const resp = await fetch('https://formsubmit.co/ajax/amgaug@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Aster self-hosting request - ' + pkg,
+          package: pkg,
+          email: email,
+          message: 'Self-hosting request: interested in the ' + pkg + ' package. Contact: ' + email,
+        }),
+      });
+      if (!resp.ok) throw new Error('Request failed');
+      status.className = 'status success';
+      status.textContent = "Thanks - we'll be in touch about the " + pkg + ' package.';
+      document.getElementById('sh-email').value = '';
+      btn.disabled = false;
+      btn.textContent = 'Request self-hosting';
+    } catch (err) {
+      status.className = 'status error';
+      status.textContent = 'Something went wrong. Try again in a moment.';
+      btn.disabled = false;
+      btn.textContent = 'Request self-hosting';
+    }
+  }
+</script>
 
 </body>
 </html>
