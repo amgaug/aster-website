@@ -66,6 +66,22 @@
   .ethics-band p { font-size: 14px; color: var(--text-muted); line-height: 1.85; font-weight: 300; }
   .ethics-band strong { color: var(--text); font-weight: 500; }
   .divider { height: 1px; background: var(--border); margin: 4rem 0; }
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  @media (max-width: 720px) { .tier-grid { grid-template-columns: 1fr; } }
+  .tier-card { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 2rem 1.75rem; display: flex; flex-direction: column; }
+  .tier-card.featured { border-color: var(--border-accent); box-shadow: 0 8px 40px rgba(91,79,212,0.12); }
+  .tier-card.soon { opacity: 0.85; }
+  .tier-head { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 1.1rem; }
+  .tier-name { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: var(--pink); text-transform: uppercase; }
+  .soon-badge { font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--purple-soft); background: rgba(123,111,232,0.14); padding: 0.22rem 0.55rem; border-radius: 6px; }
+  .tier-price { display: flex; align-items: baseline; gap: 0.4rem; margin-bottom: 0.5rem; }
+  .tier-price .num { font-size: 2.2rem; font-weight: 600; letter-spacing: -0.02em; color: var(--text); }
+  .tier-price .per { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+  .tier-meta { font-size: 13px; color: var(--text-muted); font-weight: 300; line-height: 1.65; margin-bottom: 1.5rem; min-height: 3.3em; }
+  .tier-list { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+  .tier-list li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 13px; color: var(--text); font-weight: 300; line-height: 1.5; }
+  .tier-list svg { flex-shrink: 0; margin-top: 3px; }
+  .tier-foot { font-size: 13px; color: var(--text-muted); font-weight: 300; line-height: 1.7; margin-top: 1.75rem; }
   footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-size: 12px; color: var(--text-faint); }
 </style>
 </head>
@@ -170,11 +186,53 @@
       <div class="why-item">
         <div class="why-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div>
-          <h4>Small by design</h4>
-          <p>Shares are capped at 25 MB, which keeps uploads light and avoids sending more than you mean to.</p>
+          <h4>Sensible limits</h4>
+          <p>Per-file and storage limits scale with your plan, so you only upload what you mean to share.</p>
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="block" id="pricing">
+    <p class="section-label">Pricing</p>
+    <h2>Pick how much you <span>share</span></h2>
+    <p class="lead">Every plan includes the full Aster app. Aster Share adds encrypted link sharing on top, and you choose how much you can store and how long links live.</p>
+    <div class="tier-grid">
+      <div class="tier-card featured">
+        <div class="tier-head"><p class="tier-name">Free</p></div>
+        <div class="tier-price"><span class="num">$0</span><span class="per">forever</span></div>
+        <p class="tier-meta">Everything in Aster, plus encrypted sharing for everyday clips.</p>
+        <ul class="tier-list">
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>2 GB of shared storage</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 500 MB per file</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Links last 7 days, renewable</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>End-to-end encrypted, only a verified email needed</li>
+        </ul>
+      </div>
+      <div class="tier-card soon">
+        <div class="tier-head"><p class="tier-name">Plus</p><span class="soon-badge">Coming soon</span></div>
+        <div class="tier-price"><span class="num">$10</span><span class="per">/ mo</span></div>
+        <p class="tier-meta">More room and longer-lived links for regular sharing.</p>
+        <ul class="tier-list">
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>10 GB of shared storage</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Larger per-file uploads</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Links last 30 days</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Free</li>
+        </ul>
+      </div>
+      <div class="tier-card soon">
+        <div class="tier-head"><p class="tier-name">Pro</p><span class="soon-badge">Coming soon</span></div>
+        <div class="tier-price"><span class="num">$20</span><span class="per">/ mo</span></div>
+        <p class="tier-meta">Maximum storage with links that never expire on you.</p>
+        <ul class="tier-list">
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>50 GB of shared storage</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Largest per-file uploads</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Links that never expire</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Plus</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tier-foot">Aster Share is launching with the Free tier. Paid plans are on the way.</p>
   </div>
 
   <div class="ethics-band">

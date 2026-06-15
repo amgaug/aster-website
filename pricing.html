@@ -58,27 +58,8 @@
   .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; background: var(--pink); color: #1A0E2E; font-size: 14px; font-weight: 600; padding: 0.8rem 1.5rem; border-radius: 9px; text-decoration: none; transition: background 0.2s; }
   .btn-primary:hover { background: var(--pink-bright); }
   .platform-note { font-size: 11.5px; color: var(--text-faint); margin-top: 0.9rem; text-align: center; }
-  .toggle { display: inline-flex; padding: 4px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 11px; margin-bottom: 2.5rem; }
-  .toggle button { font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text-muted); background: transparent; border: none; padding: 0.5rem 1.25rem; border-radius: 8px; cursor: pointer; transition: all 0.2s; }
-  .toggle button.active { color: var(--bg); background: var(--pink); }
-  .pane { display: none; }
-  .pane.active { display: block; }
-  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: left; }
-  @media (max-width: 640px) { .tier-grid { grid-template-columns: 1fr; } }
-  .tier-card { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.6rem 1.4rem; display: flex; flex-direction: column; }
-  .tier-card.featured { border-color: var(--border-accent); box-shadow: 0 8px 40px rgba(91,79,212,0.12); }
-  .tier-card.soon { opacity: 0.82; }
-  .tier-name { font-size: 13px; font-weight: 600; letter-spacing: 0.03em; color: var(--pink); text-transform: uppercase; }
-  .tier-price { display: flex; align-items: baseline; gap: 0.35rem; margin: 0.5rem 0 0.2rem; }
-  .tier-price .num { font-size: 2rem; font-weight: 600; letter-spacing: -0.02em; }
-  .tier-price .per { font-size: 13px; color: var(--text-muted); font-weight: 300; }
-  .tier-meta { font-size: 12.5px; color: var(--text-muted); font-weight: 300; margin-bottom: 1.1rem; min-height: 2.4em; }
-  .tier-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-  .tier-list li { display: flex; gap: 0.5rem; align-items: flex-start; font-size: 12.5px; color: var(--text); font-weight: 300; }
-  .tier-list svg { flex-shrink: 0; margin-top: 2px; }
-  .soon-badge { position: absolute; top: 1.1rem; right: 1.1rem; font-size: 10px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--purple-soft); background: rgba(123,111,232,0.14); padding: 0.2rem 0.5rem; border-radius: 6px; }
-  .share-note { font-size: 12.5px; color: var(--text-muted); font-weight: 300; max-width: 480px; margin: 1.6rem auto 0; }
-  .share-intro { font-size: 13px; color: var(--text-muted); font-weight: 300; max-width: 500px; margin: 0 auto 1.75rem; }
+  .share-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 1.75rem; font-size: 13.5px; font-weight: 500; color: var(--pink); text-decoration: none; transition: gap 0.2s; }
+  .share-link:hover { gap: 10px; }
   footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-size: 12px; color: var(--text-faint); }
 </style>
 </head>
@@ -112,86 +93,32 @@
   <h1>Free <span>forever.</span></h1>
   <p class="lead">Aster runs entirely on your machine. No sign up required.</p>
 
-  <div class="toggle" role="tablist">
-    <button id="tab-aster" class="active" onclick="showPane('aster')">Aster</button>
-    <button id="tab-share" onclick="showPane('share')">Aster Share</button>
+  <div class="price-card">
+    <p class="price-tier">Aster</p>
+    <div class="price-amt"><span class="num">$0</span><span class="per">forever</span></div>
+    <p class="price-note">Everything runs locally on your Mac. Download and go.</p>
+    <ul class="price-list">
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited screen recordings</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>On-device transcription (Apple Speech or Whisper)</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Correlated narrative and timeline</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Send to Claude desktop, browser, or Claude Code</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Connect to Claude with MCP</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>In-app analysis with your own Anthropic API key</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Private link sharing with Aster Share</li>
+      <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatic updates, notarized by Apple</li>
+    </ul>
+    <a href="https://github.com/amgaug/aster-releases/releases/latest/download/Aster.zip" class="btn-primary">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Download Aster
+    </a>
+    <p class="platform-note">macOS 13+ · Apple Silicon · Notarized &amp; free</p>
   </div>
 
-  <div id="pane-aster" class="pane active">
-    <div class="price-card">
-      <p class="price-tier">Aster</p>
-      <div class="price-amt"><span class="num">$0</span><span class="per">forever</span></div>
-      <p class="price-note">Everything runs locally on your Mac. Download and go.</p>
-      <ul class="price-list">
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited screen recordings</li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>On-device transcription (Apple Speech or Whisper)</li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Correlated narrative and timeline</li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Send to Claude desktop, browser, or Claude Code</li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Connect to Claude with MCP</li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>In-app analysis with your own Anthropic API key</li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Private link sharing with Aster Share</li>
-        <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Automatic updates, notarized by Apple</li>
-      </ul>
-      <a href="https://github.com/amgaug/aster-releases/releases/latest/download/Aster.zip" class="btn-primary">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Download Aster
-      </a>
-      <p class="platform-note">macOS 13+ · Apple Silicon · Notarized &amp; free</p>
-    </div>
-  </div>
-
-  <div id="pane-share" class="pane">
-    <p class="share-intro">Aster Share adds end-to-end encrypted link sharing on top of everything in Aster. Every plan includes the full app. You pick how much you can store and how long links live.</p>
-    <div class="tier-grid">
-      <div class="tier-card featured">
-        <p class="tier-name">Free</p>
-        <div class="tier-price"><span class="num">$0</span><span class="per">forever</span></div>
-        <p class="tier-meta">Everything in Aster, plus encrypted sharing for everyday clips.</p>
-        <ul class="tier-list">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>2 GB of shared storage</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 500 MB per file</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Links last 7 days, renewable</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>End-to-end encrypted, only a verified email needed</li>
-        </ul>
-      </div>
-      <div class="tier-card soon">
-        <span class="soon-badge">Coming soon</span>
-        <p class="tier-name">Plus</p>
-        <div class="tier-price"><span class="num">$5</span><span class="per">/ mo</span></div>
-        <p class="tier-meta">More room and longer-lived links for regular sharing.</p>
-        <ul class="tier-list">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>10 GB of shared storage</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Larger per-file uploads</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Links last 30 days</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Free</li>
-        </ul>
-      </div>
-      <div class="tier-card soon">
-        <span class="soon-badge">Coming soon</span>
-        <p class="tier-name">Pro</p>
-        <div class="tier-price"><span class="num">$12</span><span class="per">/ mo</span></div>
-        <p class="tier-meta">Maximum storage with links that never expire on you.</p>
-        <ul class="tier-list">
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>25 GB of shared storage</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Largest per-file uploads</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Links that never expire</li>
-          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Plus</li>
-        </ul>
-      </div>
-    </div>
-    <p class="share-note">Aster Share is launching with the Free tier. Paid plans are on the way. <a href="share.html" style="color: var(--pink); text-decoration: none;">Learn how Aster Share keeps your recordings private.</a></p>
-  </div>
+  <a href="share.html#pricing" class="share-link">
+    See Aster Share pricing
+    <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7.5 3.5L11 7l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
 </main>
-
-<script>
-  function showPane(which) {
-    var isAster = which === 'aster';
-    document.getElementById('pane-aster').classList.toggle('active', isAster);
-    document.getElementById('pane-share').classList.toggle('active', !isAster);
-    document.getElementById('tab-aster').classList.toggle('active', isAster);
-    document.getElementById('tab-share').classList.toggle('active', !isAster);
-  }
-</script>
 
 <footer>
   <p>Aster · A personal project · Built in Montreal</p>
