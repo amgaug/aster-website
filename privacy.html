@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - Aster</title>
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="icon-192-maskable.png">
+<link rel="canonical" href="https://asterlabs.dev/privacy.html">
+<meta name="description" content="How Aster handles your data: local-first by design, with explicit, opt-in sharing.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple-soft: #7B6FE8;
+    --pink: #E87FD4;
+    --pink-bright: #F09AE0;
+    --bg: #0E0C1A;
+    --bg-card: #16132A;
+    --bg-card2: #1C1830;
+    --text: #F0EEF8;
+    --text-muted: #A09AC0;
+    --text-faint: #605A80;
+    --border: rgba(255,255,255,0.08);
+    --border-accent: rgba(232,127,212,0.25);
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(14,12,26,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+  .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, #5B4FD4, #4A6ED4); display: flex; align-items: center; justify-content: center; }
+  .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover { color: var(--text); }
+  .nav-download { font-size: 13px; font-weight: 500; color: var(--bg); background: var(--pink); padding: 0.45rem 1.1rem; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+  .nav-download:hover { background: var(--pink-bright); }
+  main { max-width: 760px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+  .doc-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink); margin-bottom: 0.8rem; }
+  h1 { font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+  .updated { font-size: 13px; color: var(--text-faint); margin-bottom: 2.5rem; }
+  .tldr { background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; }
+  .tldr p { font-size: 14.5px; color: var(--text-muted); margin: 0; }
+  .tldr strong { color: var(--text); font-weight: 600; }
+  h2 { font-size: 1.25rem; font-weight: 600; margin: 2.5rem 0 0.9rem; letter-spacing: -0.01em; }
+  h3 { font-size: 1rem; font-weight: 600; margin: 1.6rem 0 0.5rem; color: var(--text); }
+  p { font-size: 15px; color: var(--text-muted); margin-bottom: 1rem; }
+  ul { margin: 0 0 1rem 1.2rem; }
+  li { font-size: 15px; color: var(--text-muted); margin-bottom: 0.5rem; }
+  strong { color: var(--text); font-weight: 600; }
+  a { color: var(--pink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; background: var(--bg-card2); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--text); }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-size: 12px; color: var(--text-faint); }
+  footer a { color: var(--text-faint); }
+  footer a:hover { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <line x1="9" y1="2" x2="9" y2="16" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="2" y1="9" x2="16" y2="9" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="3.7" y1="3.7" x2="14.3" y2="14.3" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="14.3" y1="3.7" x2="3.7" y2="14.3" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    Aster
+  </a>
+  <div class="nav-links">
+    <a href="share.html" class="nav-link">Aster Share</a>
+    <a href="pricing.html" class="nav-link">Pricing</a>
+    <a href="learn.html" class="nav-link">Learn</a>
+    <a href="feedback.html" class="nav-link">Feedback</a>
+    <a href="https://github.com/amgaug/aster-releases/releases/latest/download/Aster.dmg" class="nav-download">Download</a>
+  </div>
+</nav>
+
+<main>
+  <p class="doc-eyebrow">Legal</p>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 16, 2026</p>
+
+  <div class="tldr">
+    <p><strong>The short version.</strong> Aster is a Mac app that records your screen and keeps
+    everything <strong>on your device</strong>. Nothing leaves your Mac unless you take an explicit
+    action &mdash; sending a recording to Claude, or publishing a share link. We run no accounts, no
+    ads, and no analytics or tracking, and we do not sell or share your data.</p>
+  </div>
+
+  <h2>Who we are</h2>
+  <p>Aster ("we", "us") is a macOS application and a small set of supporting web services, operated as
+  a personal project. This policy explains what data Aster handles, where it goes, and how long it is
+  kept. It covers the Aster Mac app, the Aster Share service at <code>share.asterlabs.app</code>, the
+  website at <code>asterlabs.dev</code>, and the Aster connector for Claude.</p>
+
+  <h2>Local-first by design</h2>
+  <p>When you record with Aster, the capture and everything derived from it &mdash; the video, audio
+  transcript, detected clicks, on-screen text (OCR), window titles, and the correlated summary &mdash;
+  are written to files <strong>on your Mac</strong>. They are not uploaded anywhere by default. Aster
+  has no background sync and no telemetry. A recording stays private to your machine until you choose
+  to do something with it.</p>
+
+  <h2>When data leaves your Mac</h2>
+  <p>Data only leaves your device when you take one of these actions:</p>
+
+  <h3>1. Sending a recording to Claude (Anthropic API)</h3>
+  <p>If you generate an artifact or otherwise ask Claude to work with a recording from inside the app,
+  Aster sends the relevant <strong>text derived from that recording</strong> (and, where applicable, the
+  prompt you chose) to the Anthropic API using <strong>your own API key</strong>, which you store in your
+  Mac's Keychain. That request is governed by
+  <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy
+  Policy</a>. We do not receive, proxy, or store a copy of those requests &mdash; they go directly from
+  your Mac to Anthropic.</p>
+
+  <h3>2. Publishing with Aster Share</h3>
+  <p>When you publish a recording and/or its artifact as a shareable web page, the content is uploaded to
+  the Aster Share service, which runs on <strong>Cloudflare</strong> (Workers, R2 object storage, and a D1
+  database). What gets stored depends on the share type:</p>
+  <ul>
+    <li><strong>Encrypted (zero-knowledge) shares:</strong> the video and content are encrypted
+    <em>on your Mac</em> before upload. We store only ciphertext. The decryption key is placed in the
+    link's URL fragment (the part after <code>#</code>), which is <strong>never sent to our server</strong>
+    &mdash; it is held by the browser and used to decrypt in-page. We cannot read the contents of an
+    encrypted share.</li>
+    <li><strong>Plain shares:</strong> the video (if any) and the artifact HTML are stored as-is so the
+    page can be viewed by anyone with the link. Use an encrypted share if the content is sensitive.</li>
+  </ul>
+  <p>For every share we store minimal metadata needed to serve it: random access keys, a title, optional
+  duration, file size, timestamps, and view/download counts. We do <strong>not</strong> require or collect
+  names, emails, or accounts to publish. Anyone with a link can view that share, and anyone with its admin
+  key can edit or delete it.</p>
+  <p><strong>Retention:</strong> shares <strong>auto-expire and are deleted 30 days</strong> after
+  creation (enforced by storage lifecycle rules plus a nightly cleanup job). You can also delete a share
+  at any time using its admin key.</p>
+
+  <h3>3. The Aster connector for Claude</h3>
+  <p>Aster offers an optional <strong>connector</strong> (an MCP server at
+  <code>share.asterlabs.app/mcp</code>) that you can add to Claude. It exposes a single tool,
+  <code>publish_to_aster</code>, which publishes a self-contained HTML artifact you provide as an Aster
+  Share page and returns the resulting public and admin links.</p>
+  <ul>
+    <li>The connector only ever receives the <strong>HTML artifact and optional title that you ask Claude
+    to publish</strong>. It does not read your Claude conversations, history, memory, files, or any other
+    context, and it requests no such access.</li>
+    <li>Published artifacts are stored exactly like any other plain Aster Share (see above), with the same
+    <strong>30-day auto-deletion</strong> and admin-key deletion.</li>
+    <li>The connector requires no account and no sign-in. It performs no financial actions, serves no ads,
+    and contains no hidden instructions.</li>
+  </ul>
+
+  <h2>The website and feedback form</h2>
+  <p>The marketing site at <code>asterlabs.dev</code> is a static site with no tracking or analytics
+  cookies. Downloads are served from GitHub Releases. If you use the Feedback form, the message and any
+  contact details you include are sent via a third-party email delivery service (EmailJS) so we can read
+  and respond to your feedback; they are used only for that purpose.</p>
+
+  <h2>What we do not do</h2>
+  <ul>
+    <li>No user accounts or profiles.</li>
+    <li>No advertising, no behavioral tracking, no third-party analytics in the app.</li>
+    <li>No selling, renting, or sharing of your data with third parties for their own use.</li>
+    <li>No access to your Claude conversations, files, or other connectors.</li>
+  </ul>
+
+  <h2>Data deletion</h2>
+  <p>Recordings and their files live on your Mac &mdash; delete them like any file to remove them. Published
+  shares can be deleted immediately with their admin key, and otherwise auto-delete after 30 days. For any
+  other request, contact us below.</p>
+
+  <h2>Children</h2>
+  <p>Aster is not directed to children under 13 and we do not knowingly collect data from them.</p>
+
+  <h2>Changes</h2>
+  <p>We may update this policy as Aster evolves. Material changes will be reflected by updating the "Last
+  updated" date above.</p>
+
+  <h2>Contact</h2>
+  <p>Questions or requests about privacy: <a href="mailto:privacy@asterlabs.dev">privacy@asterlabs.dev</a>.</p>
+</main>
+
+<footer>
+  <p>Aster &middot; A personal project &middot; Built in Montreal &middot; <a href="privacy.html">Privacy</a></p>
+</footer>
+
+</body>
+</html>
