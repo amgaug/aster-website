@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aster Connector for Claude - Documentation</title>
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="icon-192-maskable.png">
+<link rel="canonical" href="https://asterlabs.dev/connector.html">
+<meta name="description" content="The Aster connector for Claude: publish a Claude artifact as a shareable web page. Setup, the publish_to_aster tool, and data handling.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple-soft: #7B6FE8;
+    --pink: #E87FD4;
+    --pink-bright: #F09AE0;
+    --bg: #0E0C1A;
+    --bg-card: #16132A;
+    --bg-card2: #1C1830;
+    --text: #F0EEF8;
+    --text-muted: #A09AC0;
+    --text-faint: #605A80;
+    --border: rgba(255,255,255,0.08);
+    --border-accent: rgba(232,127,212,0.25);
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(14,12,26,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+  .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, #5B4FD4, #4A6ED4); display: flex; align-items: center; justify-content: center; }
+  .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover { color: var(--text); }
+  .nav-download { font-size: 13px; font-weight: 500; color: var(--bg); background: var(--pink); padding: 0.45rem 1.1rem; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+  .nav-download:hover { background: var(--pink-bright); }
+  main { max-width: 760px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+  .doc-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink); margin-bottom: 0.8rem; }
+  h1 { font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+  .lede { font-size: 1.05rem; color: var(--text-muted); font-weight: 300; margin-bottom: 2.5rem; }
+  h2 { font-size: 1.25rem; font-weight: 600; margin: 2.5rem 0 0.9rem; letter-spacing: -0.01em; }
+  p { font-size: 15px; color: var(--text-muted); margin-bottom: 1rem; }
+  ul, ol { margin: 0 0 1rem 1.2rem; }
+  li { font-size: 15px; color: var(--text-muted); margin-bottom: 0.5rem; }
+  strong { color: var(--text); font-weight: 600; }
+  a { color: var(--pink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; background: var(--bg-card2); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--text); }
+  .url { display: inline-block; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 14px; background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: 8px; padding: 0.55rem 0.9rem; color: var(--text); margin: 0.3rem 0 1rem; }
+  pre { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.2rem; overflow-x: auto; margin-bottom: 1.2rem; }
+  pre code { background: none; padding: 0; font-size: 12.5px; line-height: 1.6; color: var(--text-muted); }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 1.2rem; font-size: 14px; }
+  th, td { text-align: left; padding: 0.55rem 0.7rem; border-bottom: 1px solid var(--border); color: var(--text-muted); vertical-align: top; }
+  th { color: var(--text); font-weight: 600; }
+  .note { background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.2rem; }
+  .note p { margin: 0; font-size: 14px; }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-size: 12px; color: var(--text-faint); }
+  footer a { color: var(--text-faint); }
+  footer a:hover { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <line x1="9" y1="2" x2="9" y2="16" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="2" y1="9" x2="16" y2="9" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="3.7" y1="3.7" x2="14.3" y2="14.3" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="14.3" y1="3.7" x2="3.7" y2="14.3" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    Aster
+  </a>
+  <div class="nav-links">
+    <a href="share.html" class="nav-link">Aster Share</a>
+    <a href="pricing.html" class="nav-link">Pricing</a>
+    <a href="learn.html" class="nav-link">Learn</a>
+    <a href="feedback.html" class="nav-link">Feedback</a>
+    <a href="https://github.com/amgaug/aster-releases/releases/latest/download/Aster.dmg" class="nav-download">Download</a>
+  </div>
+</nav>
+
+<main>
+  <p class="doc-eyebrow">Connector Documentation</p>
+  <h1>Aster connector for Claude</h1>
+  <p class="lede">Build it in Claude. Send the link. The Aster connector publishes a self-contained
+  HTML artifact &mdash; a design, report, or dashboard &mdash; as a live, shareable web page, and
+  hands back a public link plus a private admin link.</p>
+
+  <h2>Server</h2>
+  <p>Aster is a <strong>remote MCP server</strong> over Streamable HTTP. There is one universal
+  endpoint for everyone:</p>
+  <div class="url">https://share.asterlabs.app/mcp</div>
+  <p>No account, no API key, no OAuth. The endpoint is anonymous and stateless.</p>
+
+  <h2>Add it to Claude</h2>
+  <ol>
+    <li>Open <strong>Settings &rarr; Connectors</strong>.</li>
+    <li>Click <strong>+</strong>, then <strong>Add custom connector</strong>.</li>
+    <li>Paste <code>https://share.asterlabs.app/mcp</code> and add it.</li>
+    <li>Enable it in a chat, then ask Claude to publish an artifact to Aster.</li>
+  </ol>
+
+  <h2>The tool: <code>publish_to_aster</code></h2>
+  <p>The server exposes a single write tool. It takes the HTML you ask Claude to publish and returns
+  the links to share and manage it.</p>
+  <table>
+    <tr><th>Field</th><th>Type</th><th>Notes</th></tr>
+    <tr><td><code>artifact_html</code></td><td>string (required)</td><td>A complete, self-contained HTML document.</td></tr>
+    <tr><td><code>title</code></td><td>string (optional)</td><td>Shown on the share page. Defaults to "Untitled link".</td></tr>
+  </table>
+  <p>It returns a <strong>public share URL</strong> (anyone with the link can view) and a
+  <strong>private admin URL</strong> (manage or delete the page). It is annotated
+  <code>destructiveHint: true</code> because it creates content; it reads no other data.</p>
+
+  <h2>Try it</h2>
+  <p>Example use cases:</p>
+  <ul>
+    <li>"Publish that landing page to Aster and give me the link to send my cofounder."</li>
+    <li>"Publish this report as a web page titled 'Q3 Status' and give me the share link."</li>
+    <li>"Publish this pricing table as a page, then give me the admin link so I can take it down after the call."</li>
+  </ul>
+  <p>You can also call the server directly to see the tool list:</p>
+  <pre><code>curl -s https://share.asterlabs.app/mcp \
+  -H 'content-type: application/json' \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'</code></pre>
+
+  <h2>Data handling</h2>
+  <ul>
+    <li><strong>Accessed:</strong> only the HTML and optional title you explicitly ask to publish. No files, conversation, memory, or other connectors.</li>
+    <li><strong>Stored:</strong> the HTML plus minimal metadata (random viewer/admin keys, title, timestamps, view counts) in Aster's database on Cloudflare. No video is uploaded through the connector.</li>
+    <li><strong>Transport:</strong> HTTPS/TLS only.</li>
+    <li><strong>Retention:</strong> pages auto-delete after <strong>30 days</strong>; you can delete one immediately with its admin link.</li>
+    <li><strong>No accounts, no PII collected, never sold or shared.</strong></li>
+  </ul>
+
+  <div class="note">
+    <p><strong>About sensitive content.</strong> Connector-published pages are stored in plaintext and
+    are viewable by anyone with the link &mdash; private and unlisted, but not encrypted. For sensitive
+    material, use the Aster Mac app's <strong>zero-knowledge encrypted sharing</strong>, where content
+    is encrypted on your device and the key never reaches the server.</p>
+  </div>
+
+  <p>See the <a href="privacy.html">Privacy Policy</a> for full details. Questions:
+  <a href="mailto:privacy@asterlabs.dev">privacy@asterlabs.dev</a>.</p>
+</main>
+
+<footer>
+  <p>Aster &middot; A personal project &middot; Built in Montreal &middot; <a href="privacy.html">Privacy</a></p>
+</footer>
+
+</body>
+</html>
