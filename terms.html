@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service - Aster</title>
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="icon-192-maskable.png">
+<link rel="canonical" href="https://asterlabs.dev/terms.html">
+<meta name="description" content="Terms of Service for the Aster macOS app and Aster Share service.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple-soft: #7B6FE8;
+    --pink: #E87FD4;
+    --pink-bright: #F09AE0;
+    --bg: #0E0C1A;
+    --bg-card: #16132A;
+    --bg-card2: #1C1830;
+    --text: #F0EEF8;
+    --text-muted: #A09AC0;
+    --text-faint: #605A80;
+    --border: rgba(255,255,255,0.08);
+    --border-accent: rgba(232,127,212,0.25);
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 2.5rem; background: rgba(14,12,26,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+  .logo-mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, #5B4FD4, #4A6ED4); display: flex; align-items: center; justify-content: center; }
+  .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-link { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover { color: var(--text); }
+  .nav-download { font-size: 13px; font-weight: 500; color: var(--bg); background: var(--pink); padding: 0.45rem 1.1rem; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+  .nav-download:hover { background: var(--pink-bright); }
+  main { max-width: 760px; margin: 0 auto; padding: 8rem 2rem 4rem; }
+  .doc-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink); margin-bottom: 0.8rem; }
+  h1 { font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+  .updated { font-size: 13px; color: var(--text-faint); margin-bottom: 2.5rem; }
+  .tldr { background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 2.5rem; }
+  .tldr p { font-size: 14.5px; color: var(--text-muted); margin: 0; }
+  .tldr strong { color: var(--text); font-weight: 600; }
+  h2 { font-size: 1.25rem; font-weight: 600; margin: 2.5rem 0 0.9rem; letter-spacing: -0.01em; }
+  h3 { font-size: 1rem; font-weight: 600; margin: 1.6rem 0 0.5rem; color: var(--text); }
+  p { font-size: 15px; color: var(--text-muted); margin-bottom: 1rem; }
+  ul { margin: 0 0 1rem 1.2rem; }
+  li { font-size: 15px; color: var(--text-muted); margin-bottom: 0.5rem; }
+  strong { color: var(--text); font-weight: 600; }
+  a { color: var(--pink); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px; background: var(--bg-card2); padding: 0.1rem 0.35rem; border-radius: 4px; color: var(--text); }
+  footer { border-top: 1px solid var(--border); padding: 1.5rem 2.5rem; text-align: center; font-size: 12px; color: var(--text-faint); }
+  footer a { color: var(--text-faint); }
+  footer a:hover { color: var(--text-muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-mark">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <line x1="9" y1="2" x2="9" y2="16" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="2" y1="9" x2="16" y2="9" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="3.7" y1="3.7" x2="14.3" y2="14.3" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+        <line x1="14.3" y1="3.7" x2="3.7" y2="14.3" stroke="#E87FD4" stroke-width="2.8" stroke-linecap="round"/>
+      </svg>
+    </div>
+    Aster
+  </a>
+  <div class="nav-links">
+    <a href="share.html" class="nav-link">Aster Share</a>
+    <a href="pricing.html" class="nav-link">Pricing</a>
+    <a href="feedback.html" class="nav-link">Feedback</a>
+    <a href="https://github.com/amgaug/aster-releases/releases/latest/download/Aster.dmg" class="nav-download">Download</a>
+  </div>
+</nav>
+
+<main>
+  <p class="doc-eyebrow">Legal</p>
+  <h1>Terms of Service</h1>
+  <p class="updated">Last updated: June 18, 2026</p>
+
+  <div class="tldr">
+    <p><strong>The short version.</strong> Aster is a personal project. Use it for lawful purposes,
+    don't abuse the Share service, and understand that the software is provided as-is. By using Aster
+    you agree to these terms.</p>
+  </div>
+
+  <h2>Who these terms apply to</h2>
+  <p>These Terms of Service ("Terms") apply to your use of the Aster macOS application, the Aster Share
+  service at <code>share.asterlabs.app</code>, the Aster connector for Claude, and the website at
+  <code>asterlabs.dev</code> (collectively, "Aster"). They are operated as a personal project by Alex
+  Gaughan ("we", "us"). By downloading, installing, or using any part of Aster you agree to these
+  Terms.</p>
+
+  <h2>Use of the app</h2>
+  <p>Aster is a macOS screen-recording tool. It captures your screen, audio, and activity and stores
+  everything locally on your device. You are responsible for what you record.</p>
+  <ul>
+    <li><strong>Consent:</strong> only record screens and audio where you have the right to do so.
+    Recording others without their knowledge or consent may violate applicable laws.</li>
+    <li><strong>Lawful use:</strong> do not use Aster to record, store, or share content that is
+    unlawful, harassing, defamatory, or that infringes any third-party rights.</li>
+    <li><strong>Third-party services:</strong> when you send recordings to the Anthropic API, your use
+    is also governed by <a href="https://www.anthropic.com/legal/consumer-terms" target="_blank"
+    rel="noopener">Anthropic's Terms of Service</a>. We are not responsible for those services.</li>
+  </ul>
+
+  <h2>Aster Share service</h2>
+  <p>Aster Share lets you publish recordings and AI-generated artifacts as web pages on
+  <code>share.asterlabs.app</code>. By publishing content you agree that:</p>
+  <ul>
+    <li>You own or have the right to share the content you upload.</li>
+    <li>You will not publish content that is unlawful, abusive, or that violates any third party's
+    rights (including privacy, copyright, or defamation).</li>
+    <li>Published shares are accessible to anyone with the link. Use an encrypted share for sensitive
+    content.</li>
+    <li>Shares <strong>auto-delete 30 days</strong> after creation. We do not guarantee long-term
+    availability of published content.</li>
+  </ul>
+  <p>We reserve the right to remove any published content that violates these Terms without prior
+  notice.</p>
+
+  <h2>Aster connector for Claude</h2>
+  <p>The Aster connector (MCP server) lets Claude publish artifacts to Aster Share. Content published
+  through the connector is subject to the same Aster Share terms above. The connector may only be
+  used with Claude under Anthropic's own terms; do not use it to automate abuse of the Share
+  service.</p>
+
+  <h2>Acceptable use</h2>
+  <p>You agree not to:</p>
+  <ul>
+    <li>Attempt to disrupt, overload, or gain unauthorized access to any Aster service or
+    infrastructure.</li>
+    <li>Use automated tools to bulk-upload content or scrape the Share service.</li>
+    <li>Circumvent any content restrictions or rate limits we put in place.</li>
+    <li>Misrepresent the source or nature of content you publish.</li>
+  </ul>
+
+  <h2>Intellectual property</h2>
+  <p>Aster and its associated code, design, and branding are the property of the operator. You retain
+  all rights to the recordings, transcripts, and artifacts you create. By publishing a share you grant
+  us a limited, non-exclusive license to host and serve that content for the purpose of making it
+  accessible to people with the link, for as long as the share exists.</p>
+
+  <h2>Disclaimer of warranties</h2>
+  <p>Aster is provided <strong>"as is"</strong> without warranties of any kind, express or implied,
+  including but not limited to merchantability, fitness for a particular purpose, or non-infringement.
+  We do not guarantee that Aster will be uninterrupted, error-free, or that published shares will
+  remain available for any specific period. Use Aster at your own risk.</p>
+
+  <h2>Limitation of liability</h2>
+  <p>To the fullest extent permitted by law, we will not be liable for any indirect, incidental,
+  special, consequential, or punitive damages arising out of your use of Aster, including loss of
+  data, loss of recordings, or inability to access a share. Our total liability to you for any claim
+  will not exceed the amount you paid for the software in the 12 months before the claim.</p>
+
+  <h2>Changes to these Terms</h2>
+  <p>We may update these Terms as Aster evolves. Continued use of Aster after changes are posted
+  constitutes acceptance of the new Terms. Material changes will be reflected by updating the "Last
+  updated" date above.</p>
+
+  <h2>Governing law</h2>
+  <p>These Terms are governed by the laws of the Province of Quebec, Canada, without regard to
+  conflict-of-law principles.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about these Terms: <a href="mailto:privacy@asterlabs.dev">privacy@asterlabs.dev</a>.</p>
+</main>
+
+<footer>
+  <p>Aster &middot; A personal project &middot; Built in Montreal &middot; <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></p>
+</footer>
+
+</body>
+</html>
