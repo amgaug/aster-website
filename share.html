@@ -66,7 +66,7 @@
   .ethics-band p { font-size: 14px; color: var(--text-muted); line-height: 1.85; font-weight: 300; }
   .ethics-band strong { color: var(--text); font-weight: 500; }
   .divider { height: 1px; background: var(--border); margin: 4rem 0; }
-  .tier-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; align-items: stretch; max-width: 660px; margin: 0 auto; }
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
   @media (max-width: 760px) { .tier-grid { grid-template-columns: 1fr; } }
   .tier-card { position: relative; background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 2rem 1.75rem; display: flex; flex-direction: column; }
   .tier-card.featured { border-color: var(--border-accent); box-shadow: 0 8px 40px rgba(91,79,212,0.12); }
@@ -207,7 +207,7 @@
   <div class="block" id="pricing">
     <p class="section-label">Pricing</p>
     <h2>Storage that <span>scales with you</span></h2>
-    <p class="lead">Aster Share is free to start and end-to-end encrypted. You get 2 GB of shared storage forever, and when you need more, top up in one-time blocks. No subscription, and storage you buy never expires. Delete any file anytime to free up space.</p>
+    <p class="lead">Aster Share is free to start and end-to-end encrypted. You get 2 GB of shared storage forever, and when you need more, top up in one-time blocks. No subscription, and storage you buy never expires. Delete any file anytime to free up space. Teams that need full control can self-host the whole thing on their own cloud.</p>
     <div class="tier-grid">
 
       <div class="tier-card">
@@ -236,6 +236,20 @@
           <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#E87FD4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Stack as many blocks as you need</li>
         </ul>
         <button class="sh-btn" disabled style="opacity:0.6;cursor:default;">Coming soon</button>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-head"><p class="tier-name">Enterprise</p></div>
+        <div class="tier-price"><span class="num">Self-hosted</span></div>
+        <p class="sh-price">Custom pricing</p>
+        <p class="tier-meta">Run Aster Share on your own infrastructure, with your data and keys staying entirely under your control.</p>
+        <ul class="tier-list">
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Self-hosted on your own cloud</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Set your own storage and file limits</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>End-to-end encrypted, you hold every key</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.2 3.2L13 5" stroke="#7B6FE8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Setup support and an SLA</li>
+        </ul>
+        <a href="mailto:privacy@asterlabs.dev?subject=Aster%20Share%20Enterprise%20(self-hosted)" class="sh-btn" style="text-decoration:none;">Contact us</a>
       </div>
 
     </div>
