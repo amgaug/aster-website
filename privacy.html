@@ -88,7 +88,7 @@
   <div class="tldr">
     <p><strong>The short version.</strong> Aster is a Mac app that records your screen and keeps
     everything <strong>on your device</strong>. Nothing leaves your Mac unless you take an explicit
-    action &mdash; sending a recording to Claude, or publishing a share link. We run no accounts, no
+    action, like sending a recording to Claude or publishing a share link. We run no accounts, no
     ads, and no analytics or tracking, and we do not sell or share your data.</p>
   </div>
 
@@ -99,9 +99,9 @@
   website at <code>asterlabs.dev</code>, and the Aster connector for Claude.</p>
 
   <h2>Local-first by design</h2>
-  <p>When you record with Aster, the capture and everything derived from it &mdash; the video, audio
-  transcript, detected clicks, on-screen text (OCR), window titles, and the correlated summary &mdash;
-  are written to files <strong>on your Mac</strong>. They are not uploaded anywhere by default. Aster
+  <p>When you record with Aster, the capture and everything derived from it is written to files
+  <strong>on your Mac</strong>: the video, audio transcript, detected clicks, on-screen text (OCR),
+  window titles, and the correlated summary. They are not uploaded anywhere by default. Aster
   has no background sync and no telemetry. A recording stays private to your machine until you choose
   to do something with it.</p>
 
@@ -114,7 +114,7 @@
   prompt you chose) to the Anthropic API using <strong>your own API key</strong>, which you store in your
   Mac's Keychain. That request is governed by
   <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic's Privacy
-  Policy</a>. We do not receive, proxy, or store a copy of those requests &mdash; they go directly from
+  Policy</a>. We do not receive, proxy, or store a copy of those requests. They go directly from
   your Mac to Anthropic.</p>
 
   <h3>2. Publishing with Aster Share</h3>
@@ -124,8 +124,8 @@
   <ul>
     <li><strong>Encrypted (zero-knowledge) shares:</strong> the video and content are encrypted
     <em>on your Mac</em> before upload. We store only ciphertext. The decryption key is placed in the
-    link's URL fragment (the part after <code>#</code>), which is <strong>never sent to our server</strong>
-    &mdash; it is held by the browser and used to decrypt in-page. We cannot read the contents of an
+    link's URL fragment (the part after <code>#</code>), which is <strong>never sent to our server</strong>.
+    It is held by the browser and used to decrypt in-page. We cannot read the contents of an
     encrypted share.</li>
     <li><strong>Plain shares:</strong> the video (if any) and the artifact HTML are stored as-is so the
     page can be viewed by anyone with the link. Use an encrypted share if the content is sensitive.</li>
@@ -168,7 +168,7 @@
   </ul>
 
   <h2>Data deletion</h2>
-  <p>Recordings and their files live on your Mac &mdash; delete them like any file to remove them. Published
+  <p>Recordings and their files live on your Mac. Delete them like any file to remove them. Published
   shares can be deleted immediately with their admin key, and otherwise auto-delete after 30 days. For any
   other request, contact us below.</p>
 
