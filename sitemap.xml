@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://asterlabs.dev/</loc><lastmod>2026-06-16</lastmod><priority>1.0</priority></url>
   <url><loc>https://asterlabs.dev/pricing.html</loc><lastmod>2026-06-16</lastmod><priority>0.8</priority></url>
+  <url><loc>https://asterlabs.dev/why-zero-knowledge.html</loc><lastmod>2026-06-20</lastmod><priority>0.8</priority></url>
   <url><loc>https://asterlabs.dev/share.html</loc><lastmod>2026-06-16</lastmod><priority>0.7</priority></url>
   <url><loc>https://asterlabs.dev/connector.html</loc><lastmod>2026-06-16</lastmod><priority>0.7</priority></url>
   <url><loc>https://asterlabs.dev/feedback.html</loc><lastmod>2026-06-16</lastmod><priority>0.5</priority></url>

@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aster - Screen Recording for Claude</title>
+<title>Aster - Private, zero-knowledge AI work memory for Mac</title>
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="icon-192-maskable.png">
 <link rel="canonical" href="https://asterlabs.dev/">
-<meta name="description" content="Record your screen and Aster turns it into text Claude can read. A recording becomes whatever you need: notes, a bug report, a shareable link. All on your Mac.">
+<meta name="description" content="Aster captures your screen and meetings as a private, searchable memory on your Mac. Bot-free: no bot joins your calls. Zero-knowledge: what you share is encrypted so no one, not even us, can read it. Summarize on-device or bring your own Anthropic/OpenAI key.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://asterlabs.dev/">
-<meta property="og:title" content="Aster · Screen recording for Claude">
-<meta property="og:description" content="Record your screen, mic, audio, and meetings. Aster transcribes and summarizes on-device with Apple Intelligence, then hands off to Claude or OpenAI when you need more. All private, all on your Mac.">
+<meta property="og:title" content="Aster · Zero-knowledge AI work memory">
+<meta property="og:description" content="Capture your screen and meetings privately on your Mac. Bot-free, zero-knowledge, your own keys. Summarize on-device or hand off to Claude or OpenAI. Share without anyone, including us, able to read it.">
 <meta property="og:image" content="https://asterlabs.dev/icon-512-maskable.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,6 +85,7 @@
   </a>
   <div class="nav-links">
     <a href="#features" class="nav-link">Features</a>
+    <a href="why-zero-knowledge.html" class="nav-link">Security</a>
     <a href="share.html" class="nav-link">Aster Share</a>
     <a href="pricing.html" class="nav-link">Pricing</a>
     <a href="feedback.html" class="nav-link">Feedback</a>
@@ -96,16 +97,42 @@
   <div class="hero-glow"></div>
   <div class="hero-glow-pink"></div>
   <img src="icon-512-maskable.png" alt="Aster app icon" class="app-icon" />
-  <p class="eyebrow">For macOS · Local-first AI</p>
-  <h1>Private by default.<br><span>Frontier AI when you need it.</span></h1>
-  <p class="hero-sub">Aster records your screen, mic, system audio, and meetings, then transcribes and summarizes them on your Mac with Apple Intelligence. Nothing gets uploaded. Need a frontier model? Hand off to Claude or OpenAI, then share the result as an encrypted link. No subscription, and nothing leaves your Mac unless you send it.</p>
+  <p class="eyebrow">For macOS · Local-first · Zero-knowledge</p>
+  <h1>Capture your work.<br><span>Zero-knowledge. Bot-free. Yours.</span></h1>
+  <p class="hero-sub">Aster records your screen and meetings and turns them into private, searchable notes on your Mac. No bot joins your calls, and nothing is uploaded. Summarize on-device, or hand off to Claude or OpenAI with your own key. Share with anyone, and soon your whole team, without us, or anyone, able to read it.</p>
   <div class="cta-group">
     <a href="https://github.com/amgaug/aster-releases/releases/latest/download/Aster.dmg" class="btn-primary">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       Download free
     </a>
   </div>
-  <p class="platform-note">macOS 13+ · Apple Silicon · Notarized · Free</p>
+  <p class="platform-note">macOS 13+ · Apple Silicon · Notarized · Free · Zero-knowledge sharing</p>
+</section>
+
+<div class="divider"></div>
+
+<section class="features">
+  <p class="section-label">Why Aster</p>
+  <h2>Trust through <span>math, not homework</span></h2>
+  <p class="feat-sub">Other tools ask you to trust their cloud, or to read their source and run your own server. Aster is built so trust isn't required: capture stays on your Mac, and what you share is encrypted so that no one, not even us, can read it.</p>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="8" r="6.2" stroke="#E87FD4" stroke-width="1.4"/></svg></div>
+      <h3>Bot-free by design</h3>
+      <p>No bot joins your meetings. Aster captures your screen and system audio locally on your Mac, so there's no uninvited participant in the call and no recording sitting on someone else's server.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="6" rx="1.5" stroke="#E87FD4" stroke-width="1.4"/><path d="M5 7V5a3 3 0 016 0v2" stroke="#E87FD4" stroke-width="1.4"/></svg></div>
+      <h3>Zero-knowledge sharing</h3>
+      <p>What you share is encrypted on your Mac before it leaves. We store only ciphertext and never hold the key. We literally cannot read your shares, and neither can anyone who breaches us.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><circle cx="6" cy="8" r="3" stroke="#E87FD4" stroke-width="1.4"/><path d="M8.5 8H14M12 8v2.5M14 8v2.5" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+      <h3>Your keys, your models</h3>
+      <p>Summarize on-device, or bring your own Anthropic or OpenAI key and call frontier models directly. You decide whether the cloud is ever involved, per action, no proxy in between.</p>
+    </div>
+  </div>
+  <p class="feat-sub" style="margin: 2rem auto 0;"><a href="why-zero-knowledge.html" style="color:var(--pink); text-decoration:none; font-weight:500;">Why zero-knowledge &amp; bot-free &rarr;</a></p>
 </section>
 
 <div class="divider"></div>
@@ -151,8 +178,8 @@
     </div>
     <div class="feat-card">
       <div class="feat-icon"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M8 1.6c2 1.4 2 4 .3 5.4M8 1.6c-2 1.4-2 4-.3 5.4M8 7c2.2 0 4 1.5 4.6 3.6M8 7c-2.2 0-4 1.5-4.6 3.6" stroke="#E87FD4" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="7" r="1.5" stroke="#E87FD4" stroke-width="1.3"/></svg></div>
-      <h3>Apple Intelligence summaries</h3>
-      <p>Summarize a recording on-device with Apple Intelligence. It's private, free, and instant, and the everyday path needs no cloud and no key at all.</p>
+      <h3>On-device summaries, your choice of model</h3>
+      <p>Summarize a recording on-device with Apple Intelligence, Qwen, or Gemma 4 E4B. It's private, free, and instant, and the everyday path needs no cloud and no key at all.</p>
     </div>
     <div class="feat-card">
       <div class="feat-icon"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M2 8h7M9 8l-2.2-2.2M9 8l-2.2 2.2" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 4.5a4.5 4.5 0 010 7" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round"/></svg></div>
@@ -161,8 +188,8 @@
     </div>
     <div class="feat-card">
       <div class="feat-icon"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="9" height="10" rx="2" stroke="#E87FD4" stroke-width="1.4"/><path d="M11 6.5l3-1.5v6l-3-1.5z" stroke="#E87FD4" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
-      <h3>Video, mic &amp; system audio</h3>
-      <p>Capture the screen as video with your microphone and the computer's own audio together. You get both sides of a call, the app you're demoing, and every word said.</p>
+      <h3>Bot-free meeting capture</h3>
+      <p>Capture the screen with your microphone and the computer's own audio together, all locally. No bot joins the call, so you get both sides of a meeting and every word said without an uninvited participant in the room.</p>
     </div>
     <div class="feat-card">
       <div class="feat-icon"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="3" width="11" height="10" rx="2" stroke="#E87FD4" stroke-width="1.4"/><path d="M2.5 6h11M5 1.8v2.4M11 1.8v2.4" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round"/></svg></div>
@@ -201,8 +228,8 @@
     </div>
     <div class="feat-card">
       <div class="feat-icon"><svg width="17" height="17" viewBox="0 0 16 16" fill="none"><path d="M8 2v8M5 7l3 3 3-3M3 13h10" stroke="#E87FD4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h3>No subscription</h3>
-      <p>The app is free, notarized by Apple, and auto-updating. Cloud AI is one-time pricing with credits that never expire. No monthly bill, nothing to cancel.</p>
+      <h3>Free for you, no subscription</h3>
+      <p>The app is free, notarized by Apple, and auto-updating. Cloud AI is a one-time unlock with credits that never expire. Only teams pay, per seat, for a shared workspace.</p>
     </div>
   </div>
 </section>
